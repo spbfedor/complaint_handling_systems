@@ -1,9 +1,9 @@
 from sqlalchemy import Column, DateTime, Integer, String
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from database import Base
 
 
-tzmsk = timezone("Europe/Moscow")
+tzmsk = timezone(timedelta(hours=3))
 
 
 class Complaint(Base):

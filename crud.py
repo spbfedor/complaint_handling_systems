@@ -1,10 +1,10 @@
 from fastapi import HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from models import Complaint
-from schemas import ComplaintsCreate, ComplaintsResponse
+from schemas import ComplaintCreate
 
 
-async def create_complaint(db: AsyncSession, complaint: ComplaintsCreate):
+async def create_complaint(db: AsyncSession, complaint: ComplaintCreate):
     db_complaint = Complaint(text=complaint.text)
     db.add(db_complaint)
     await db.commit()

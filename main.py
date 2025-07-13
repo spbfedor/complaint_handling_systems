@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 
 from database import AsyncSessionLocal, create_tables
 from crud import create_complaint
-from schemas import ComplaintsCreate, ComplaintsResponse
+from schemas import ComplaintCreate, ComplaintResponse
 
 
 @asynccontextmanager
@@ -23,9 +23,9 @@ async def get_db():
         yield db
 
 
-@app.post("/complaint/", response_model=ComplaintsResponse)
+@app.post("/complaint/", response_model=ComplaintResponse)
 async def post_complaint(
-    complaint: ComplaintsCreate,
+    complaint: ComplaintCreate,
     db: AsyncSession = Depends(get_db)
 ):
     sentiment = ...
@@ -37,6 +37,3 @@ async def post_complaint(
     db_complaint.category = category
     await db.commit()
     return db_complaint
-
-
-

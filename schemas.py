@@ -2,11 +2,11 @@ from pydantic import BaseModel
 from datetime import datetime
 
 
-class ComplaintsCreate(BaseModel):
+class ComplaintCreate(BaseModel):
     text: str
 
 
-class ComplaintsResponse(BaseModel):
+class ComplaintResponse(BaseModel):
     id: int
     text: str
     status: str
